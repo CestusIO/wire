@@ -17,7 +17,7 @@ package bar
 import (
 	"os"
 
-	"github.com/google/wire"
+	"code.cestus.io/tools/wire"
 )
 
 var Value = wire.Value(os.Stdout)

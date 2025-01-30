@@ -12,15 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//+build wireinject
+//go:build wireinject
+// +build wireinject
 
 package main
 
 import (
 	"os"
 
+	"code.cestus.io/tools/wire"
 	"example.com/bar"
-	"github.com/google/wire"
 )
 
 func injectedFile() *os.File {

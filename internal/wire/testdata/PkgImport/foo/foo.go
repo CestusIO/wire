@@ -17,8 +17,8 @@ package main
 import (
 	"fmt"
 
+	"code.cestus.io/tools/wire"
 	"example.com/bar"
-	"github.com/google/wire"
 )
 
 func main() {

@@ -2,7 +2,7 @@
 //
 // Modifications in code regions will be lost during regeneration!
 // region CODE_REGION(name)
-module github.com/google/wire
+module code.cestus.io/tools/wire
 
 go 1.23
 

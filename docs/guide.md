@@ -76,7 +76,7 @@ package foobarbaz
 
 import (
     // ...
-    "github.com/google/wire"
+    "code.cestus.io/tools/wire"
 )
 
 // ...
@@ -121,7 +121,7 @@ package main
 import (
     "context"
 
-    "github.com/google/wire"
+    "code.cestus.io/tools/wire"
     "example.com/foobarbaz"
 )
 
