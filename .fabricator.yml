@@ -5,10 +5,10 @@ components:
     generator: fabricator-generate-go
     spec:
       packageName: wire
-  # Disabled until updated generator    
+  # Disabled until updated
   # - name: wire
   #   generator: fabricator-generate-project-go
   #   spec:
   #     goModule: code.cestus.io/tools/wire
   #     repoURL: https://github.com/CestusIO/wire
-  #     isLib: true
+  #     isTool: true
