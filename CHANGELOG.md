@@ -15,6 +15,9 @@ It assumes the use of [conventional commits](https://www.conventionalcommits.org
 - move to code.cestus.io/tools/wire
 - update go1.23
 
+### Features
+- add version command
+
 
 <a name="v0.6.0"></a>
 ## [v0.6.0]
