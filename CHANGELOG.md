@@ -8,6 +8,12 @@ It assumes the use of [conventional commits](https://www.conventionalcommits.org
 ## [Unreleased]
 
 
+<a name="v0.7.1"></a>
+## [v0.7.1]
+### Bug Fixes
+- ci for tool releases
+
+
 <a name="v0.7.0"></a>
 ## [v0.7.0]
 ### Chores
@@ -258,7 +264,8 @@ It assumes the use of [conventional commits](https://www.conventionalcommits.org
 - fix typo in README: App -> Baz (google/go-cloud[#239](https://github.com/CestusIO/wire/issues/239))
 
 
-[Unreleased]: https://github.com/CestusIO/wire/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/CestusIO/wire/compare/v0.7.1...HEAD
+[v0.7.1]: https://github.com/CestusIO/wire/compare/v0.7.0...v0.7.1
 [v0.7.0]: https://github.com/CestusIO/wire/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/CestusIO/wire/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/CestusIO/wire/compare/v0.4.0...v0.5.0
