@@ -15,7 +15,7 @@ ARCHITECTURES           := amd64
 # Name of the app used for single application builds
 APP 					:= 
 # List of applications to build (must reside in ./cmd/<name>)
-APPLICATIONS            := 
+APPLICATIONS            := wire
 # Buildtime of a version will be passed as ldflag to go compiler
 ifeq ($(OS),Windows_NT)
     VERSION_DATE := $(shell powershell -Command "Get-Date -Format o")
