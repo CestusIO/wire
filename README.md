@@ -4,7 +4,6 @@
 [![godoc](https://godoc.org/github.com/google/wire?status.svg)][godoc]
 [![Coverage](https://codecov.io/gh/google/wire/branch/master/graph/badge.svg)](https://codecov.io/gh/google/wire)
 
-
 Wire is a code generation tool that automates connecting components using
 [dependency injection][]. Dependencies between components are represented in
 Wire as function parameters, encouraging explicit initialization instead of
@@ -24,7 +23,7 @@ For an overview, see the [introductory blog post][].
 Install Wire by running:
 
 ```shell
-go install github.com/google/wire/cmd/wire@latest
+go install code.cestus.io/tools/wire/cmd/wire@latest
 ```
 
 and ensuring that `$GOPATH/bin` is added to your `$PATH`.
@@ -43,7 +42,7 @@ and ensuring that `$GOPATH/bin` is added to your `$PATH`.
 
 ## Project status
 
-As of version v0.3.0, Wire is *beta* and is considered feature complete. It
+As of version v0.3.0, Wire is _beta_ and is considered feature complete. It
 works well for the tasks it was designed to perform, and we prefer to keep it
 as simple as possible.
 

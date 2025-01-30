@@ -11,6 +11,7 @@ It assumes the use of [conventional commits](https://www.conventionalcommits.org
 <a name="unreleased"></a>
 ## [unreleased]
 ### Chores
+- remove ioutil
 - use fabricator
 - move to code.cestus.io/tools/wire
 - update go1.23
