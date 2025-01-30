@@ -18,7 +18,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/google/wire"
+	"code.cestus.io/tools/wire"
 )
 
 type context struct{}

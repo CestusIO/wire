@@ -23,7 +23,6 @@ import (
 	"fmt"
 	"go/token"
 	"go/types"
-	"io/ioutil"
 	"log"
 	"os"
 	"reflect"
@@ -31,13 +30,16 @@ import (
 	"strconv"
 	"strings"
 
+	"code.cestus.io/libs/buildinfo"
+	_ "code.cestus.io/tools/wire"
+	"code.cestus.io/tools/wire/internal/wire"
 	"github.com/google/subcommands"
-	"github.com/google/wire/internal/wire"
 	"github.com/pmezard/go-difflib/difflib"
 	"golang.org/x/tools/go/types/typeutil"
 )
 
 func main() {
+	buildinfo := buildinfo.ProvideBuildInfo()
 	subcommands.Register(subcommands.CommandsCommand(), "")
 	subcommands.Register(subcommands.FlagsCommand(), "")
 	subcommands.Register(subcommands.HelpCommand(), "")
@@ -45,6 +47,7 @@ func main() {
 	subcommands.Register(&diffCmd{}, "")
 	subcommands.Register(&genCmd{}, "")
 	subcommands.Register(&showCmd{}, "")
+	subcommands.Register(&versionCmd{buildInfo: buildinfo}, "")
 	flag.Parse()
 
 	// Initialize the default logger to log to stderr.
@@ -64,6 +67,7 @@ func main() {
 		"diff":     true,
 		"gen":      true,
 		"show":     true,
+		"version":  true,
 	}
 	// Default to running the "gen" command.
 	if args := flag.Args(); len(args) == 0 || !allCmds[args[0]] {
@@ -89,7 +93,7 @@ func newGenerateOptions(headerFile string) (*wire.GenerateOptions, error) {
 	opts := new(wire.GenerateOptions)
 	if headerFile != "" {
 		var err error
-		opts.Header, err = ioutil.ReadFile(headerFile)
+		opts.Header, err = os.ReadFile(headerFile)
 		if err != nil {
 			return nil, fmt.Errorf("failed to read header file %q: %v", headerFile, err)
 		}
@@ -235,7 +239,7 @@ func (cmd *diffCmd) Execute(ctx context.Context, f *flag.FlagSet, args ...interf
 			continue
 		}
 		// Assumes the current file is empty if we can't read it.
-		cur, _ := ioutil.ReadFile(out.OutputPath)
+		cur, _ := os.ReadFile(out.OutputPath)
 		if diff, err := difflib.GetUnifiedDiffString(difflib.UnifiedDiff{
 			A: difflib.SplitLines(string(cur)),
 			B: difflib.SplitLines(string(out.Content)),
@@ -349,6 +353,32 @@ func (cmd *showCmd) Execute(ctx context.Context, f *flag.FlagSet, args ...interf
 		log.Println("error loading packages")
 		return subcommands.ExitFailure
 	}
+	return subcommands.ExitSuccess
+}
+
+type versionCmd struct {
+	buildInfo buildinfo.BuildInfo
+}
+
+func (*versionCmd) Name() string { return "version" }
+func (*versionCmd) Synopsis() string {
+	return "prints the version"
+}
+func (*versionCmd) Usage() string {
+	return `version 
+`
+}
+func (cmd *versionCmd) SetFlags(f *flag.FlagSet) {
+
+}
+func (cmd *versionCmd) Execute(ctx context.Context, f *flag.FlagSet, args ...interface{}) subcommands.ExitStatus {
+	version := cmd.buildInfo
+	fmt.Fprintf(os.Stdout, "Name:       %s\n", version.Name)
+	fmt.Fprintf(os.Stdout, "Version:    %s\n", version.Version)
+	fmt.Fprintf(os.Stdout, "BuildDate:  %s\n", version.BuildDate)
+	fmt.Fprintf(os.Stdout, "Go-Version: %s\n", version.GoVersion)
+	fmt.Fprintf(os.Stdout, "Platform:   %s\n", version.Platform)
+	fmt.Fprintf(os.Stdout, "OS:         %s\n", version.OS)
 	return subcommands.ExitSuccess
 }
 

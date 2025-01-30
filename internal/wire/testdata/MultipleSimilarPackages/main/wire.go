@@ -12,17 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//+build wireinject
+//go:build wireinject
+// +build wireinject
 
 package main
 
 import (
 	"fmt"
 
+	"code.cestus.io/tools/wire"
 	"example.com/bar"
 	"example.com/baz"
 	"example.com/foo"
-	"github.com/google/wire"
 )
 
 type MainConfig struct {

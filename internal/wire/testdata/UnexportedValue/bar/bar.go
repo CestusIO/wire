@@ -14,7 +14,7 @@
 
 package bar
 
-import "github.com/google/wire"
+import "code.cestus.io/tools/wire"
 
 var Value = wire.Value(privateMsg)
 

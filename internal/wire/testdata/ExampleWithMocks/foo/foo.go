@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/google/wire"
+	"code.cestus.io/tools/wire"
 )
 
 func main() {

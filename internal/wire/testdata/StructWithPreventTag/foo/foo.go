@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/google/wire"
+	"code.cestus.io/tools/wire"
 )
 
 func main() {
