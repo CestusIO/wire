@@ -8,8 +8,8 @@ It assumes the use of [conventional commits](https://www.conventionalcommits.org
 ## [Unreleased]
 
 
-<a name="unreleased"></a>
-## [unreleased]
+<a name="v0.7.0"></a>
+## [v0.7.0]
 ### Chores
 - remove ioutil
 - use fabricator
@@ -17,6 +17,8 @@ It assumes the use of [conventional commits](https://www.conventionalcommits.org
 - update go1.23
 
 ### Features
+- add generics support
+- Use //go:generate go tool code.cestus.io/tools/wire/cmd/wire
 - add version command
 
 
@@ -256,8 +258,8 @@ It assumes the use of [conventional commits](https://www.conventionalcommits.org
 - fix typo in README: App -> Baz (google/go-cloud[#239](https://github.com/CestusIO/wire/issues/239))
 
 
-[Unreleased]: https://github.com/CestusIO/wire/compare/unreleased...HEAD
-[unreleased]: https://github.com/CestusIO/wire/compare/v0.6.0...unreleased
+[Unreleased]: https://github.com/CestusIO/wire/compare/v0.7.0...HEAD
+[v0.7.0]: https://github.com/CestusIO/wire/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/CestusIO/wire/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/CestusIO/wire/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/CestusIO/wire/compare/v0.3.0...v0.4.0
