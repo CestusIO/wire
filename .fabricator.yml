@@ -1,0 +1,13 @@
+apiVersion: fabricator.cestus.io/v1alpha1
+kind: Config
+components:
+  - name: wire
+    generator: fabricator-generate-go
+    spec:
+      packageName: wire
+  - name: wire
+    generator: fabricator-generate-project-go
+    spec:
+      goModule: code.cestus.io/tools/wire
+      repoURL: https://github.com/CestusIO/wire
+      isLib: true
